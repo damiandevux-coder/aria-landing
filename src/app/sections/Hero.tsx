@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import AriaAvatar from "../components/AriaAvatar";
 
 export default function Hero() {
   return (
@@ -24,7 +23,7 @@ export default function Hero() {
               duration: 4 + i,
               repeat: Infinity,
               delay: i * 0.7,
-              ease: "easeInOut",
+              ease: "easeInOut" as const,
             }}
           />
         ))}
@@ -38,7 +37,29 @@ export default function Hero() {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="mb-8 flex justify-center"
         >
-          <AriaAvatar size={120} />
+          <motion.div
+            animate={{
+              boxShadow: [
+                "0 0 40px rgba(79, 124, 255, 0.25), 0 0 80px rgba(108, 232, 196, 0.1)",
+                "0 0 60px rgba(79, 124, 255, 0.4), 0 0 120px rgba(108, 232, 196, 0.15)",
+                "0 0 40px rgba(79, 124, 255, 0.25), 0 0 80px rgba(108, 232, 196, 0.1)",
+              ],
+            }}
+            transition={{
+              duration: 3,
+              repeat: Infinity,
+              ease: "easeInOut" as const,
+            }}
+            className="rounded-full overflow-hidden w-[120px] h-[120px]"
+          >
+            <img
+              src="/aria-avatar.png"
+              alt="Aria — AI Employee"
+              className="w-full h-full object-cover"
+              width={120}
+              height={120}
+            />
+          </motion.div>
         </motion.div>
 
         {/* Badge */}
