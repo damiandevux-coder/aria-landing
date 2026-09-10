@@ -1,17 +1,25 @@
 import type { Metadata } from "next";
-import { Space_Grotesk } from "next/font/google";
+import { Figtree } from "next/font/google";
+import { GeistMono } from "geist/font/mono";
 import "./globals.css";
 
-const spaceGrotesk = Space_Grotesk({
-  variable: "--font-space-grotesk",
+const figtree = Figtree({
+  variable: "--font-figtree",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
-  title: "Aria — Your company's first AI employee",
+  title: "Aria. Your first AI employee, already in Slack.",
   description:
-    "Aria joins your Slack, learns your business, and starts delivering work in minutes.",
+    "Aria joins your Slack as a named team member. She reads your channels, does the research, writes the code, and delivers the file in the thread.",
+  openGraph: {
+    title: "Aria. Your first AI employee, already in Slack.",
+    description:
+      "Aria reads your channels, does the research, writes the code, and delivers the file. In the thread.",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
@@ -20,10 +28,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
-      <body className={`${spaceGrotesk.variable} font-sans antialiased`}>
-        {children}
-      </body>
+    <html lang="en" className={`${figtree.variable} ${GeistMono.variable}`}>
+      <body className="font-sans antialiased">{children}</body>
     </html>
   );
 }
