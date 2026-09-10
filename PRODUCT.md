@@ -8,7 +8,7 @@ web
 
 ## Stack
 
-Next.js 14 + TypeScript + Tailwind CSS v4 + Framer Motion
+Astro 7 + React islands + TypeScript + Tailwind CSS v4 + GSAP + Lenis (Framer Motion inside islands only)
 
 ## Users
 

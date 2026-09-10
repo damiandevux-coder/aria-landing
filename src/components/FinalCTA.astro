@@ -1,0 +1,27 @@
+---
+import { SlackLogoIcon as SlackLogo } from "@phosphor-icons/react";
+import Button from "./Button.astro";
+import { SIGNUP_URL, CTA_LABEL } from "../lib/links";
+---
+
+<section class="band relative overflow-hidden bg-ink py-28 md:py-40" style="--z: 9">
+  <div
+    class="pointer-events-none absolute inset-0 bg-[radial-gradient(900px_420px_at_50%_120%,rgba(79,124,255,0.28),transparent_65%)]"
+    aria-hidden="true"
+  ></div>
+  <div class="grid-lines pointer-events-none absolute inset-0" aria-hidden="true"></div>
+  <div class="relative mx-auto max-w-[1200px] px-6 text-center md:px-10">
+    <a-words>
+      <h2 class="mx-auto max-w-[18ch] text-4xl font-bold sm:text-5xl md:text-6xl">Give her the first job today.</h2>
+    </a-words>
+    <p data-reveal data-delay="1" class="mx-auto mt-5 max-w-[40ch] text-lg text-fg-2">
+      Fourteen days free, no card. Remove her from a channel whenever you like.
+    </p>
+    <div data-reveal data-delay="2" class="mt-9">
+      <Button href={SIGNUP_URL} size="lg" external>
+        <SlackLogo slot="icon" weight="bold" className="h-[18px] w-[18px]" />
+        {CTA_LABEL}
+      </Button>
+    </div>
+  </div>
+</section>

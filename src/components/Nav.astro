@@ -1,0 +1,63 @@
+---
+import { ListIcon as List, XIcon as X, SlackLogoIcon as SlackLogo } from "@phosphor-icons/react";
+import Button from "./Button.astro";
+import { SIGNUP_URL, CTA_LABEL } from "../lib/links";
+
+const links = [
+  { href: "#work", label: "What she does" },
+  { href: "#how", label: "How it works" },
+  { href: "#toolkit", label: "Toolkit" },
+  { href: "#pricing", label: "Pricing" },
+  { href: "#faq", label: "FAQ" },
+];
+---
+
+<header class="fixed inset-x-0 top-0 z-50">
+  <div class="nav-bar">
+    <div class="mx-auto flex h-16 max-w-[1200px] items-center justify-between px-6 md:px-10">
+      <a href="#top" class="flex items-center gap-2.5" aria-label="Aria home">
+        <span class="grid h-7 w-7 place-items-center rounded-[7px] bg-blue text-[15px] font-bold leading-none text-white">A</span>
+        <span class="text-[17px] font-semibold tracking-tight">Aria</span>
+      </a>
+
+      <nav class="hidden items-center gap-1 md:flex" aria-label="Primary">
+        {links.map((l) => (
+          <a href={l.href} class="nav-link text-[14px] font-medium">{l.label}</a>
+        ))}
+      </nav>
+
+      <div class="hidden md:block">
+        <Button href={SIGNUP_URL} class="h-10 px-4 text-[14px]" external>
+          <SlackLogo slot="icon" weight="bold" className="h-4 w-4" />
+          {CTA_LABEL}
+        </Button>
+      </div>
+
+      <button
+        type="button"
+        data-nav-toggle
+        class="grid h-10 w-10 place-items-center rounded-btn text-fg-2 hover:text-fg md:hidden"
+        aria-expanded="false"
+        aria-controls="mobile-nav"
+        aria-label="Open menu"
+      >
+        <span data-icon-open class="contents"><List className="h-5 w-5" weight="bold" /></span>
+        <span data-icon-close class="contents" hidden><X className="h-5 w-5" weight="bold" /></span>
+      </button>
+    </div>
+
+    <div id="mobile-nav" data-nav-menu hidden class="overflow-hidden md:hidden">
+      <div class="flex flex-col gap-1 px-6 pb-6 pt-2">
+        {links.map((l) => (
+          <a href={l.href} class="rounded-btn px-3 py-3 text-[16px] font-medium text-fg-2 hover:bg-white/[0.04] hover:text-fg">
+            {l.label}
+          </a>
+        ))}
+        <Button href={SIGNUP_URL} class="mt-3" external scramble={false}>
+          <SlackLogo slot="icon" weight="bold" className="h-4 w-4" />
+          {CTA_LABEL}
+        </Button>
+      </div>
+    </div>
+  </div>
+</header>

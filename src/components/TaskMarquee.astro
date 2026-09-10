@@ -1,0 +1,33 @@
+---
+const tasks = [
+  "Summarize what changed in #support this week",
+  "Chase the three invoices that are 30 days late",
+  "Find every account of ours that raised a round this month",
+  "Turn this thread into a one-page proposal",
+  "Fix the $0 annual price on the pricing page",
+  "Post a Monday briefing at 8am, every week",
+  "Compare our plans to Brightwater's and Halden's",
+  "Draft the onboarding emails for the new tier",
+  "Watch our rankings for “GPU cloud” and tell me when they move",
+  "Pull the numbers for Thursday's board deck",
+];
+---
+
+<section aria-label="Examples of tasks teams give Aria" class="band bg-ink-2 py-10" style="--z: 2">
+  <div class="mx-auto max-w-[1200px] px-6 md:px-10">
+    <p data-reveal class="text-[13px] font-medium text-fg-3">Things teams ask her</p>
+  </div>
+  <a-rail
+    data-direction="-1"
+    data-velocity="0.5"
+    class="mt-5 [mask-image:linear-gradient(90deg,transparent,#000_8%,#000_92%,transparent)]"
+  >
+    <div class="rail-track">
+      <ul class="rail-pattern m-0 list-none p-0">
+        {tasks.map((t) => (
+          <li class="whitespace-nowrap rounded-chip border border-line bg-white/[0.02] px-4 py-2 text-[14px] text-fg-2">{t}</li>
+        ))}
+      </ul>
+    </div>
+  </a-rail>
+</section>

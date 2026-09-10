@@ -1,0 +1,43 @@
+---
+import { WalletIcon as Wallet, EyeIcon as Eye, ShieldCheckIcon as ShieldCheck, LockIcon as Lock } from "@phosphor-icons/react";
+import Label from "./Label.astro";
+import Approval from "../islands/Approval";
+
+const points = [
+  { icon: Wallet, title: "Cost shown on every run", body: "Each task posts what it cost, in the thread." },
+  { icon: Eye, title: "Memory you can read", body: "Ask her what she remembers. Export it. Delete it." },
+  { icon: ShieldCheck, title: "Approval before sensitive actions", body: "Sending, spending, deleting: she asks first." },
+  { icon: Lock, title: "Only the channels you choose", body: "No DMs, no private channels, unless you invite her." },
+];
+---
+
+<section class="band bg-ink-2 py-24 md:py-32" style="--z: 6">
+  <div
+    class="mx-auto grid max-w-[1200px] items-center gap-14 px-6 md:px-10 lg:grid-cols-[minmax(0,6fr)_minmax(0,6fr)] lg:gap-20"
+  >
+    <div>
+      <Label>Transparent by design</Label>
+      <a-words class="mt-5">
+        <h2 class="text-3xl font-bold sm:text-4xl md:text-5xl">You can see everything she does.</h2>
+      </a-words>
+      <p data-reveal data-delay="1" class="mt-4 max-w-[48ch] text-lg text-fg-2">
+        Cost, memory, permissions. Nothing hidden behind a dashboard you have to go and find.
+      </p>
+      <ul class="mt-10 grid gap-x-8 gap-y-7 sm:grid-cols-2">
+        {points.map((p, i) => (
+          <li data-reveal data-delay={String(i + 2)} class="flex gap-3.5">
+            <p.icon className="mt-0.5 h-5 w-5 shrink-0 text-blue-2" weight="regular" />
+            <div>
+              <h3 class="text-[16px] font-semibold">{p.title}</h3>
+              <p class="mt-1 text-[15px] leading-relaxed text-fg-2">{p.body}</p>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <div data-reveal data-delay="2">
+      <Approval client:visible />
+    </div>
+  </div>
+</section>

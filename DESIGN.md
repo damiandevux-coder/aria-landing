@@ -1,10 +1,10 @@
 # Design
 
-Visual system for the Aria landing page. Tokens live in `app/globals.css` under `@theme`; this file records the decisions behind them.
+Visual system for the Aria landing page. Tokens live in `src/styles/global.css` under `@theme`; this file records the decisions behind them.
 
 ## Direction
 
-Persuade-mode B2B landing. The product's one provable claim is that a task runs to completion inside a Slack thread, so the page demonstrates that instead of describing it. The hero is a working thread component (`app/components/HeroDemo.tsx`) that plays a request through tool activity to a delivered file. Every other section reuses the same thread primitives (`app/components/slack.tsx`) rather than screenshots.
+Persuade-mode B2B landing. The product's one provable claim is that a task runs to completion inside a Slack thread, so the page demonstrates that instead of describing it. The hero is a working thread component (`src/islands/HeroDemo.tsx`) that plays a request through tool activity to a delivered file. Every other section reuses the same thread primitives (`src/islands/slack.tsx`) rather than screenshots.
 
 Dials: variance 7, motion 6, density 4.
 
@@ -35,7 +35,7 @@ Buttons 10px (`rounded-btn`), cards and frames 16px (`rounded-card`), chips 6px 
 
 ## Motion
 
-Ease `cubic-bezier(0.16, 1, 0.3, 1)` everywhere. One authored moment: the hero thread. Supporting motion is limited to tab crossfades, the approval interaction in the transparency section, the task marquee, and a blur-and-rise reveal on section headers. Everything checks `prefers-reduced-motion` and degrades to a static finished state.
+Timing, easing and choreography live in MOTION.md. House ease `cubic-bezier(0.16, 1, 0.3, 1)`; symmetric moves use `cubic-bezier(0.645, 0.045, 0.355, 1)`. One authored moment: the hero thread. Everything else follows the readiness gate, the word-level heading reveal, slide-up reveals with 100 ms staggers, and loops that pause off screen. Everything checks `prefers-reduced-motion` and degrades to a static finished state.
 
 ## Copy rules
 

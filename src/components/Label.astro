@@ -1,0 +1,12 @@
+---
+/** Eyebrow label: a small square wipes in, the text slides in from the right. */
+interface Props {
+  class?: string;
+}
+const { class: className = "" } = Astro.props;
+---
+
+<span data-reveal="mark" class:list={["inline-flex items-center gap-2 font-mono text-[12px] uppercase tracking-[0.06em] text-fg-3", className]}>
+  <span class="label-square h-1.5 w-1.5 bg-blue" aria-hidden="true"></span>
+  <span class="label-text"><slot /></span>
+</span>

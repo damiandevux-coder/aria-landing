@@ -1,0 +1,43 @@
+---
+import { SlackLogoIcon as SlackLogo, ArrowRightIcon as ArrowRight } from "@phosphor-icons/react";
+import Button from "./Button.astro";
+import HeroDemo from "../islands/HeroDemo";
+import { SIGNUP_URL, CTA_LABEL } from "../lib/links";
+---
+
+<section id="top" class="hero-ground relative overflow-hidden pt-28 md:pt-32 lg:pt-24">
+  <div class="grid-lines pointer-events-none absolute inset-0" aria-hidden="true"></div>
+  <div
+    class="relative mx-auto grid max-w-[1200px] items-center gap-12 px-6 pb-24 md:px-10 lg:min-h-[calc(100dvh-2rem)] lg:grid-cols-[minmax(0,10fr)_minmax(0,11fr)] lg:gap-16 lg:pb-32"
+  >
+    <div class="max-w-xl">
+      <a-words>
+        <h1 class="text-[2.75rem] font-bold leading-[1.02] tracking-[-0.035em] sm:text-6xl lg:text-[4.25rem]">
+          Your first AI employee.
+          <br />
+          <span class="text-blue-2">Already in Slack.</span>
+        </h1>
+      </a-words>
+      <p data-reveal data-delay="5" class="mt-6 max-w-[34rem] text-lg leading-relaxed text-fg-2 md:text-xl">
+        Aria reads your channels, does the research, writes the code, and delivers the file. Right in the thread.
+      </p>
+      <div data-reveal data-delay="6" class="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
+        <Button href={SIGNUP_URL} size="lg" external>
+          <SlackLogo slot="icon" weight="bold" className="h-[18px] w-[18px]" />
+          {CTA_LABEL}
+        </Button>
+        <Button href="#how" variant="secondary" size="lg">
+          How it works
+          <ArrowRight slot="after" className="h-4 w-4" weight="bold" />
+        </Button>
+      </div>
+    </div>
+
+    <div data-reveal data-delay="2" class="w-full lg:justify-self-end">
+      <HeroDemo client:load />
+    </div>
+  </div>
+  <div class="mx-auto max-w-[1200px] px-6 md:px-10">
+    <div data-reveal="line" class="h-px w-full bg-line-2"></div>
+  </div>
+</section>

@@ -1,0 +1,22 @@
+---
+import Label from "./Label.astro";
+import JobsIsland from "../islands/Jobs";
+---
+
+<section id="work" class="band scroll-mt-16 bg-ink py-24 md:py-32" style="--z: 3">
+  <div class="mx-auto max-w-[1200px] px-6 md:px-10">
+    <header class="max-w-2xl">
+      <Label>What she does</Label>
+      <a-words class="mt-5">
+        <h2 class="text-3xl font-bold sm:text-4xl md:text-5xl">A chatbot answers. Aria hands you the work.</h2>
+      </a-words>
+      <p data-reveal data-delay="1" class="mt-4 max-w-[52ch] text-lg text-fg-2">
+        Four shapes of task she runs every day. Same request you&rsquo;d give a colleague, same place you&rsquo;d give it.
+      </p>
+    </header>
+
+    <div data-reveal data-delay="2" class="mt-10">
+      <JobsIsland client:visible />
+    </div>
+  </div>
+</section>

@@ -1,3 +1,11 @@
 allowBuilds:
   esbuild: true
   unrs-resolver: true
+
+# Astro's prerender bundle imports these as bare specifiers and resolves them
+# from dist/, walking up the tree. Hoist them to the project root so a stray
+# node_modules above the repo can never shadow them.
+publicHoistPattern:
+  - cookie
+  - html-escaper
+  - zod

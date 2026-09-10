@@ -1,0 +1,46 @@
+---
+import { Font } from "astro:assets";
+import "../styles/global.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "Aria. Your first AI employee, already in Slack.",
+  description = "Aria joins your Slack as a named team member. She reads your channels, does the research, writes the code, and delivers the file in the thread.",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" class="no-js is-loading">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta name="theme-color" content="#10151f" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <Font cssVariable="--font-figtree" preload />
+    <Font cssVariable="--font-geist-mono" />
+    <script is:inline>
+      // Runs before first paint: mark JS as available so reveal styles apply
+      // from the first frame, and let reduced motion skip the gate entirely.
+      var h = document.documentElement;
+      h.classList.remove("no-js");
+      h.classList.add("js");
+      if (matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        h.classList.remove("is-loading");
+        h.classList.add("is-ready", "reduce-motion");
+      }
+    </script>
+  </head>
+  <body>
+    <slot />
+    <script src="../scripts/main.ts"></script>
+  </body>
+</html>
